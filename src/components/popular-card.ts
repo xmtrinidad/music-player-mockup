@@ -51,7 +51,7 @@ export class PopularCard extends LitElement {
   render() {
     return html`
       <div class="popular-card">
-        <img src="https://picsum.photos/75/75" alt="">
+        <img src="${this.getAttribute('imgSrc')}" alt="">
         <div class="popular-card-content">
           <div class="track-number">
             <slot name="track-number"></slot>
