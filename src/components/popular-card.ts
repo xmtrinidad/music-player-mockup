@@ -31,10 +31,10 @@ export class PopularCard extends LitElement {
       }
 
       .popular-card-content {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 3fr 2fr 2fr 1fr 1fr;
         align-items: center;
-        justify-content: space-around;
-        flex: 1;
+        width: 100%;
       }
 
       .popular-card-content ::slotted(span) {
@@ -45,10 +45,6 @@ export class PopularCard extends LitElement {
 
       .track-favorite svg {
         fill: #ff6156;
-      }
-
-      .track-more svg {
-        fill: #8d9399;
       }
     `];
 
