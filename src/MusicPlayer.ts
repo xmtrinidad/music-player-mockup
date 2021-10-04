@@ -18,6 +18,10 @@ export class MusicPlayer extends LitElement {
 
     main {
       flex-grow: 1;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      margin: 24px auto;
     }
   `;
 

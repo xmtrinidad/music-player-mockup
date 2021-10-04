@@ -1,25 +1,14 @@
 import { LitElement, html, css, property } from 'lit-element';
 import { search_svg, play_svg, heart_svg } from '../APP_SVGS';
+import { SHARED_STYLES } from '../shared-styles'; '../shared-styles';
 
 export class AppHeader extends LitElement {
-  static styles = css`
+  static styles =
+  [
+    SHARED_STYLES,
+    css`
     :host {
       display: block;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: transparent;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      padding: 0;
-      margin: 0;
     }
 
     .app-header-container {
@@ -123,7 +112,7 @@ export class AppHeader extends LitElement {
     .header-footer button[active] {
       border-bottom: 3px solid #0892dd;
     }
-  `;
+  `];
 
   render() {
     return html`
