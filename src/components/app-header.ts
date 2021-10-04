@@ -23,11 +23,15 @@ export class AppHeader extends LitElement {
     }
 
     .app-header-container {
-      background-image: url('https://picsum.photos/1000/300');
+      /* background-image: url('https://picsum.photos/1000/300'); */
+      background-image: url('https://i.picsum.photos/id/311/1000/300.jpg?hmac=GoiPvYYgwguaswDgryYLgCglzAby47TLovkH3HZpdng');
       background-repeat: no-repeat;
       background-size: cover;
       width: 100%;
       height: 300px;
+      display: flex;
+      flex-direction: column;
+      padding: 12px 36px 0 36px;
     }
 
     label {
@@ -101,6 +105,24 @@ export class AppHeader extends LitElement {
     .favorite-button svg {
       fill: #ff6156;
     }
+
+    .header-footer {
+      display: flex;
+      height: 100%;
+      align-items: flex-end;
+    }
+
+    .header-footer button {
+      padding: 12px 24px;
+      color: #fff;
+      margin-right: 6px;
+      font-weight: bold;
+      border-bottom: 3px solid transparent;
+    }
+
+    .header-footer button[active] {
+      border-bottom: 3px solid #0892dd;
+    }
   `;
 
   render() {
@@ -128,12 +150,21 @@ export class AppHeader extends LitElement {
           </div>
         </div>
         <div class="header-footer">
-          <button active class="header-footer-tab-button">General</button>
-          <button class="header-footer-tab-button">About</button>
-          <button class="header-footer-tab-button">Events</button>
+          <button @click="${this.onButtonTabClick}" active class="header-footer-tab-button">General</button>
+          <button @click="${this.onButtonTabClick}" class="header-footer-tab-button">About</button>
+          <button @click="${this.onButtonTabClick}" class="header-footer-tab-button">Events</button>
         </div>
       </div>
     `;
+  }
+
+  onButtonTabClick(e: any) {
+    const clickedBtn = e.target;
+    const btnTabs = [...this.shadowRoot.querySelectorAll('.header-footer-tab-button')];
+
+    btnTabs.forEach(tab => tab.removeAttribute('active'));
+
+    clickedBtn.setAttribute('active', '');
   }
 }
 
